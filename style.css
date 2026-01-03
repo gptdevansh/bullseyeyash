@@ -13,6 +13,7 @@ html, body {
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
+    background: #0f172a; /* fallback for dark background */
 }
 
 .bg-night {
