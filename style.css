@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+.bg-night {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.35), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(14, 165, 233, 0.25), transparent 35%),
+                linear-gradient(135deg, #0f172a 0%, #1b1b4b 45%, #251a63 70%, #312e81 100%);
+    overflow: hidden;
+}
+
+.bg-night > .max-w-md {
+    width: 100%;
+    max-width: 440px;
+}
+
+@media (min-width: 768px) {
+    .bg-night > .max-w-md {
+        max-width: 600px;
+    }
+    
+    .feature-card {
+        padding: 1.25rem !important;
+    }
+    
+    .feature-card .text-lg {
+        font-size: 0.95rem;
+    }
+    
+    .feature-card .text-sm {
+        font-size: 0.75rem;
+    }
+}
+
+.bg-night::before,
+.bg-night::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.bg-night::before {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    top: -160px;
+    left: -180px;
+    animation: float 18s infinite ease-in-out;
+}
+
+.bg-night::after {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, transparent 70%);
+    bottom: -140px;
+    right: -160px;
+    animation: float 16s infinite ease-in-out reverse;
+}
+
+.glass-card {
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.32), 0 9px 26px rgba(79, 70, 229, 0.23), 0 0 26px rgba(56, 189, 248, 0.11);
+    backdrop-filter: blur(6px);
+    transform-style: preserve-3d;
+    animation: fadeUp 0.65s ease forwards, cardFloat 14s ease-in-out infinite 0.65s;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(34, 211, 238, 0.03), rgba(236, 72, 153, 0.025));
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -40%;
+    width: 80%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08), transparent 60%);
+    filter: blur(18px);
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+.profile-image {
+    border: 4px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 38px rgba(79, 70, 229, 0.6), 0 0 70px rgba(59, 130, 246, 0.32);
+}
+
+.feature-card {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.3);
+    box-shadow: 0 10px 22px rgba(34, 211, 238, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    justify-items: center;
+    min-height: 150px;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px) scale(1.01) rotateX(3deg);
+    box-shadow: 0 12px 28px rgba(34, 211, 238, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+    border-color: rgba(125, 211, 252, 0.45);
+}
+
+.feature-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.18), rgba(34, 211, 238, 0.18)),
+                linear-gradient(145deg, rgba(34, 211, 238, 0.18), rgba(59, 130, 246, 0.15));
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 16px rgba(34, 211, 238, 0.14), 0 0 18px rgba(59, 130, 246, 0.12);
+}
+
+.feature-icon svg {
+    width: 22px;
+    height: 22px;
+    color: #e6f1ff;
+}
+
+.cta-glow {
+    animation: neonPulse 5.5s ease-in-out infinite;
+}
+
+.fade-1, .fade-2, .fade-3, .fade-4, .fade-5, .fade-6, .fade-7 {
+    opacity: 0;
+}
+
+.fade-1 { animation: fadeUp 0.6s ease forwards 0.2s; }
+.fade-2 { animation: fadeUp 0.6s ease forwards 0.28s; }
+.fade-3 { animation: fadeUp 0.6s ease forwards 0.32s; }
+.fade-4 { animation: fadeUp 0.6s ease forwards 0.38s; }
+.fade-5 { animation: fadeUp 0.6s ease forwards 0.45s; }
+.fade-6 { animation: fadeUp 0.6s ease forwards 0.55s; }
+.fade-7 { animation: fadeUp 0.6s ease forwards 0.65s; }
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, 30px) scale(1.05); }
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateZ(0) translateY(0); }
+    50% { transform: translateZ(18px) translateY(-6px); }
+}
+
+@keyframes neonPulse {
+    0%, 100% { box-shadow: 0 20px 45px rgba(236, 72, 153, 0.35), 0 10px 25px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 24px 55px rgba(236, 72, 153, 0.45), 0 12px 30px rgba(249, 115, 22, 0.4); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
