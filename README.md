@@ -1,4 +1,4 @@
-# Bullseye Yash - Free Trading Community
+# Bullseye_yash - Free Trading Community
 
 A sleek, modern landing page for a trading community offering daily signals, copy-ready trades, and live guidance for traders worldwide.
 
